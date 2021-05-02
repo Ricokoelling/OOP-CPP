@@ -28,7 +28,7 @@ int main()
             std::cin >> userzahl;
         }
     }
-    std::cout << "Great, you found the number:" << zahl << "!" << std::endl;
+    std::cout << "Great, you found the number: " << zahl << " !" << std::endl;
 
     return 0;
 }
