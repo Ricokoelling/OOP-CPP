@@ -13,7 +13,7 @@ int main()
     zahl = rand() % (max + 1);
     std::cout << "Now enter the number that you think is the wanted one:" << std::endl;
     std::cin >> userzahl;
-    while (zahl != userzahl)
+    while (zahl != userzahl) //Die while-schleife wird benutzt
     {
         if (userzahl < zahl)
         {
