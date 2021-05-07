@@ -2,6 +2,39 @@
 #include <stdio.h>
 #include <math.h>
 
+int testSolution(double partOne, double partTwo)
+{
+    if (partTwo > 0)
+    {
+        std::cout << "The first solution is:" << partOne + sqrt(partTwo) << std::endl;
+        std::cout << "The second solution is:" << partOne - sqrt(partTwo) << std::endl;
+    }
+    else if (partTwo == 0)
+    {
+        std::cout << "The only solution is: " << partOne << std::endl;
+    }
+    else
+        std::cout << "Your formula doesn't have a real solution." << std::endl;
+    return 0;
+}
+int calculation(double p, double q)
+{
+    double partOne = (p / 2) * -1;
+    double partTwo = pow((p / 2), 2) - q; //anstatt pow könnte man auch (p / 2)*(p / 2) schreiben.
+
+    return testSolution(partOne, partTwo);
+}
+
+int test(double a, double b, double c)
+{
+
+    if (a != 1)
+    {
+        b /= a;
+        c /= a;
+    }
+    return calculation(b, c);
+}
 int main()
 {
     double a = 0, b = 0, c = 0;
@@ -10,26 +43,7 @@ int main()
     std::cout << "Please enter a, b and c:"
               << std::endl;
     std::cin >> a >> b >> c;
-
-    if (a != 1)
-    {
-        b /= a;
-        c /= a;
-    }
-    double part1 = (b / 2) * -1;
-    double part2 = pow((b / 2), 2) - c;
-
-    if (part2 > 0)
-    {
-        std::cout << "The first solution is:" << part1 + sqrt(part2) << std::endl;
-        std::cout << "the second solution is:" << part1 - sqrt(part2) << std::endl;
-    }
-    else if (part2 == 0)
-    {
-        std::cout << "The solution is:" << part1 << std::endl;
-    }
-    else
-        std::cout << "The formula doesnt have a solution." << std::endl;
+    test(a, b, c);
 
     return 0;
 }
