@@ -12,11 +12,10 @@ int main()
     int result4 = -1.0f - a * 2E-1 + a / 2;
     int result5 = 1.0 + (a *= (2 / -b - (c += .0E2)));
 
-    std:
 
     return 0;
 }*/
-#include <iostream>
+/*#include <iostream>
 #include <typeinfo>
 int main() {
     int a = 5, b = 2;
@@ -28,5 +27,5 @@ int main() {
     std::cout << -1.0f - a*2E-1 + a / 2 << typeid( -1.0f - a*2E-1 + a / 2 ).name() << std::endl;
     std::cout << 1.0 + (a *= (2 / - b - (c += .0E2))) << typeid( 1.0 + (a *= (2 / - b - (c += .0E2))) ).name() <<std::endl;
 
-    return 0;
+    return 0;*/
 }
