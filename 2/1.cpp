@@ -1,5 +1,4 @@
 #include <iostream>
-#include <stdio.h>
 #include <cstdlib>
 #include <ctime>
 
@@ -9,7 +8,7 @@ int main()
     std::cout << "Please enter a valid maximum: "
               << std::endl;
     std::cin >> max;
-    srand((unsigned int)time(NULL)); //Wird benutzt um die Zahl wirklich zufällig zu würfeln
+    srand(time(NULL)); //Wird benutzt um die Zahl wirklich zufällig zu würfeln
     correctNumber = rand() % (max + 1);
     std::cout << "Now enter the number that you think is the wanted one:" << std::endl;
     std::cin >> userNumber;
