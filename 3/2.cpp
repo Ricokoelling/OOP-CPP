@@ -10,7 +10,7 @@ int fehler()
 int guess(int maximum, int minimum)
 {
     srand(time(NULL));
-    int counter = 0, next = rand() % 3 + 4;
+    int counter = 0, next = rand() % 3 + 4; //für die erste Frage wird random eine Nummer ausgesucht, damit die fragen sich nicht all zu oft wiederholen
     while (1)
     {
         int difference = maximum - minimum;

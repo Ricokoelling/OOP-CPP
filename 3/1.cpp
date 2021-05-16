@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+using namespace std; //ich benutze namespacing um den code überscihtlicher zu gestalten
 int ggt(int numerator, int denomirator)
 {
     if (denomirator == 0)
@@ -14,11 +15,11 @@ int ggtshorten(int numerator, int denomirator)
     int divider;
     if (denomirator == 0 || numerator == 0)
     {
-        std::cout << "Please check your input. \n"
-                  << "Every input has to be unequal to zero. " << std::endl;
+        cout << "Please check your input. \n"
+             << "Every input has to be unequal to zero. " << endl;
         return 0;
     }
-    std::cout << "The short version of " << +numerator << "/" << +denomirator << " is";
+    cout << "The short version of " << +numerator << "/" << +denomirator << " is";
     if (abs(numerator) < abs(denomirator) && (denomirator < 0 || numerator < 0))
     {
         divider = ggt(numerator * -1, denomirator * -1);
@@ -27,18 +28,18 @@ int ggtshorten(int numerator, int denomirator)
         divider = ggt(numerator, denomirator);
     if (divider == 1)
     {
-        std::cout << "the same: " << +numerator << " / " << +denomirator << std::endl;
+        cout << "the same, cant be shorten: " << +numerator << " / " << +denomirator << endl;
         return 1;
     }
     numerator /= divider;
     denomirator /= divider;
 
-    std::cout << ": \n"
-              << +numerator << " / " << +denomirator << std::endl;
-    std::cout << "The biggest common divider is: " << +divider << std::endl;
+    cout << ": \n"
+         << +numerator << " / " << +denomirator << endl;
+    cout << "The biggest common divider is: " << +divider << endl;
     return 1;
 }
-int shorten(int numerator, int denomirator)
+int shorten(int numerator, int denomirator) //Das ist für Aufgabe 1.1 gedacht
 {
     int smaller;
     if (denomirator < 0)
@@ -48,8 +49,8 @@ int shorten(int numerator, int denomirator)
     }
     if (denomirator == 0 || numerator == 0)
     {
-        std::cout << "Please check your input. \n"
-                  << "Every input has to be unequal to zero. " << std::endl;
+        cout << "Please check your input. \n"
+             << "Every input has to be unequal to zero. " << endl;
         return 0;
     }
     if (numerator < denomirator)
@@ -64,11 +65,11 @@ int shorten(int numerator, int denomirator)
     {
         if (numerator % i == 0 && denomirator % i == 0)
         {
-            std::cout << "The short version of " << +numerator << "/" << +denomirator << " is: " << +numerator / i << " / " << +denomirator / i << std::endl;
+            cout << "The short version of " << +numerator << "/" << +denomirator << " is: " << +numerator / i << " / " << +denomirator / i << endl;
             return 0;
         }
     }
-    std::cout << "It's not possible to shorten " << +numerator << "/" << +denomirator << "." << std::endl;
+    cout << "It's not possible to shorten " << +numerator << "/" << +denomirator << "." << endl;
 }
 int main()
 {
@@ -76,15 +77,15 @@ int main()
     char input;
     do
     {
-        std::cout << "Please insert numerator and denomirator:" << std::endl;
-        std::cin >> numerator >> denomirator;
+        cout << "Please insert numerator and denomirator:" << endl;
+        cin >> numerator >> denomirator;
         //shorten(numerator, denomirator);
         int output = ggtshorten(numerator, denomirator);
         if (output != 0)
         {
-            std::cout << "If you want to insert an other pair of numbers type 'Y'. If you want to end the Programm type 'N': "
-                      << std::endl;
-            std::cin >> input;
+            cout << "If you want to insert an other pair of numbers type 'Y'. If you want to end the Programm type 'N': "
+                 << endl;
+            cin >> input;
             input = toupper(input);
         }
         if (input == 'N')
