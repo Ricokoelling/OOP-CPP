@@ -6,7 +6,7 @@ using namespace std;
 
 double max(const vector<double> &v)
 {
-    double maximum = INT16_MIN;
+    double maximum = INT32_MIN; //Das maximum wird auf den kleinsten integer Wert gesetzt
     for (double d : v)
     {
         if (maximum < d)
@@ -18,14 +18,19 @@ double max(const vector<double> &v)
 }
 bool allPositive(const vector<double> &v)
 {
+    bool temp;
     for (double d : v)
     {
         if (d > 0)
         {
-            return true;
+            temp = true;
+        }
+        else
+        {
+            return false;
         }
     }
-    return false;
+    return temp;
 }
 double product(const vector<double> &v1, const vector<double> &v2)
 {
@@ -97,10 +102,10 @@ int main()
         }
         if (allPositive(array1) == true)
         {
-            cout << "The vector is positiv in al its numbers" << endl;
+            cout << "The vector is positiv in all its numbers" << endl;
         }
         else
-            cout << "The vector is not positiv in al its numbers" << endl;
+            cout << "The vector is not positiv in all its numbers" << endl;
         break;
     case 3:
         cout << "Please insert how many numbers your vector's got: ";
@@ -134,7 +139,7 @@ int main()
         cout << "The product is: " << endl;
         for (int i = 0; i < result.size(); i++)
         {
-            cout << result[i] << " ";
+            cout << result[i] << endl;
         }
         break;
     case 5:
@@ -161,7 +166,7 @@ int main()
         cout << "The normalised vector is: " << endl;
         for (int i = 0; i < array1.size(); i++)
         {
-            cout << array1[i] << " ";
+            cout << array1[i] << endl;
         }
         break;
     default:
