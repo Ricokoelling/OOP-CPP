@@ -1,0 +1,1 @@
+Pointer.push_back(new string(input));
