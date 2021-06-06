@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 using namespace std;
-string input;
 struct Node
 {
     string value;
@@ -15,13 +14,28 @@ Node *GetNewNode(const string &value)
     return newNode;
 }
 typedef struct Node Node;
-void free(Node *tree)
+bool search(Node *tree, string &input)
+{
+    Node *now = tree;
+    while (now)
+    {
+        if (input < now->value)
+            now = now->left;
+        else if (now->value < input)
+            now = now->right;
+        else
+            return true;
+    }
+    return false;
+}
+void free(Node *&tree)
 {
     if (tree != NULL)
     {
         free(tree->left);
-        delete tree;
         free(tree->right);
+        delete tree;
+        tree = NULL;
     }
 }
 void list(Node *tree)
@@ -33,39 +47,40 @@ void list(Node *tree)
         list(tree->right);
     }
 }
-Node *insert(Node *tree)
+Node *insert(Node *&tree, string &input)
 {
-    if (tree->value.compare(input) != 0)
+    if (search(tree, input) == true)
     {
-        if (tree == NULL)
-        {
-            tree = GetNewNode(input);
-        }
-        else if (tree->value.compare(input) < 0)
-        {
-            tree->left = insert(tree->left);
-        }
-        else if (tree->value.compare(input) > 0)
-        {
-            tree->right = insert(tree->right);
-        }
         return (tree);
     }
+    if (tree == NULL)
+    {
+        tree = GetNewNode(input);
+    }
+    else if (tree->value.compare(input) < 0)
+    {
+        tree->left = insert(tree->left, input);
+    }
+    else if (tree->value.compare(input) > 0)
+    {
+        tree->right = insert(tree->right, input);
+    }
+    return (tree);
 }
 int main()
 {
     Node *tree = NULL;
+    string input;
     cout << "Please insert your word: ";
     getline(cin, input);
     while (input != ".")
     {
-        tree = insert(tree);
+        tree = insert(tree, input);
         cout << "Please insert your word: ";
         getline(cin, input);
     }
     list(tree);
     free(tree);
-    cout << "\n\n\n";
     list(tree);
     return 0;
 }
