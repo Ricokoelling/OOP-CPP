@@ -13,10 +13,10 @@ void toString(vector<string *> const &Pointer, int size)
 }
 void sort(vector<string *> &Pointer, int size) //Weil nicht genau gesagt wurde wie welche art von sortieralgorythmus verwendet werden soll habe ich eine abgewandelte Art des bubblesort verwendet die die Zeichenketten nach dem Alphabet ordnen (nach ASCII)
 {
-    bool sortiert = false;
-    while (sortiert == false)
+    bool sorted = false;
+    while (sorted == false)
     {
-        sortiert = true;
+        sorted = true;
         for (int i = 0; i < size - 1; i++)
         {
             string *temp1 = Pointer[i];
@@ -42,7 +42,7 @@ void sort(vector<string *> &Pointer, int size) //Weil nicht genau gesagt wurde w
                     }
                 }
             }
-            sortiert = false;
+            sorted = false;
         }
         size--;
     }
