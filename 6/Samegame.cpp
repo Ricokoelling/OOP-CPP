@@ -189,7 +189,7 @@ int makemove(vector<vector<char>> *field, int x, int y)
     newstones(field);
     newColumm(field);
 
-    return (check.size() * (check.size() - 1)); //so kann auch die Punktzahl berechnet werden
+    return check.size() * (check.size() - 1); //so kann auch die Punktzahl berechnet werden
 }
 void print(const vector<vector<char>> field)
 {
