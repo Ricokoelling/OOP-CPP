@@ -189,7 +189,7 @@ int makemove(vector<vector<char>> *field, int x, int y)
     newstones(field);
     newColumm(field);
 
-    return check.size() * (check.size() - 1); //so kann auch die Punktzahl berechnet werden
+    return (check.size() * (check.size() - 1)); //so kann auch die Punktzahl berechnet werden
 }
 void print(const vector<vector<char>> field)
 {
@@ -277,6 +277,7 @@ void loop(vector<vector<char>> *field)
     int points = 0;
     int x = 0;
     int y = 0;
+    cout << "Score: " << points << endl;
     while (true)
     {
         Input(&x, &y);
@@ -287,6 +288,7 @@ void loop(vector<vector<char>> *field)
         }
         points += makemove(field, x, y);
         print(*field);
+        cout << "Score: " << points << endl;
         if (isEmpty(*field)) //Es würde eigentlich reichen zu testen ob moremoves = false aber so gibt es eine Mögichkeit den totalen Sieg zu bekommen
         {
             cout << "Yuhuuu you won nothing!"
