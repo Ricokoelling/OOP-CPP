@@ -28,8 +28,12 @@ public:
         minuten = t.minuten;
         cout << "Kopier-Konstruktor" << endl;
     };
-    virtual ~Time() { cout << "Destruktor - Konstruktor" << endl; }
-    virtual void set(int h, int m)
+    virtual ~Time()
+    {
+        cout << "Destruktor" << endl;
+    }
+    virtual void
+    set(int h, int m)
     {
         minuten = 60 * h + m;
     };
