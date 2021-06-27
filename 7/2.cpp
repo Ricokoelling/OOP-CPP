@@ -42,7 +42,7 @@ public:
     };
     bool isEmpty()
     {
-        for (int i = minimum; i < maximum; i++)
+        for (int i = minimum; i <= maximum; i++)
         {
             if (menge[i] != false)
             {
@@ -54,7 +54,7 @@ public:
     int getSize()
     {
         int length = 0;
-        for (int i = minimum; i < maximum; i++)
+        for (int i = minimum; i <= maximum; i++)
         {
             if (menge[i] == true)
             {
@@ -66,7 +66,7 @@ public:
     vector<int> getElements()
     {
         vector<int> elements;
-        for (int i = minimum; i < maximum; i++)
+        for (int i = minimum; i <= maximum; i++)
         {
             if (menge[i] == true)
             {
@@ -80,7 +80,7 @@ public:
         bool temp = false;
         cout << "Elements= "
              << "{";
-        for (int i = minimum; i < maximum; i++)
+        for (int i = minimum; i <= maximum; i++)
         {
             if (menge[i] == true)
             {

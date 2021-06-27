@@ -5,7 +5,7 @@ class Time
 {
     // Daten
 private:
-    int minuten, stunden = 0;
+    int minuten;
     // Methoden
 public:
     Time()
@@ -20,32 +20,27 @@ public:
     };
     Time(int min, int h)
     {
-        minuten = min;
-        stunden = h;
+        minuten = 60 * h + min;
         cout << "Minuten- und Stunden-Konstruktor" << endl;
     };
     Time(const Time &t)
     {
         minuten = t.minuten;
-        stunden = t.stunden;
         cout << "Kopier-Konstruktor" << endl;
     };
-    virtual ~Time() {}
+    virtual ~Time() { cout << "Destruktor - Konstruktor" << endl; }
     virtual void set(int h, int m)
     {
-        minuten = m;
-        stunden = h;
+        minuten = 60 * h + m;
     };
     virtual void get(int &h, int &m) const
     {
-        h = stunden;
-        m = minuten;
-        cout << h << " " << m << endl;
+        h = minuten / 60;
+        m = minuten % 60;
     };
     virtual void inc()
     {
         minuten++;
-        stunden++;
     };
 };
 
