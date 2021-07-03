@@ -2,7 +2,6 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <utility>
 #include <vector>
 
 using namespace std;
@@ -47,9 +46,9 @@ public:
         hoehe = height;
     };
 
-    void print()
+    virtual void print()
     {
-        cout << "Laengengrad = " << laengengrad << "; Breitengrad = " << breitengrad << "; Hoehe = " << hoehe << endl;
+        cout << "Laengengrad = " << laengengrad << "; Breitengrad = " << breitengrad << "; Hoehe = " << hoehe << "m" << endl;
     };
 };
 
@@ -76,7 +75,7 @@ public:
     void print()
     {
 
-        cout << "Laengengrad = " << getLaengengrad() << "; Breitengrad = " << getBreitengrad() << "; Hoehe = " << getHoehe() << "; Ort = " << Ort << endl;
+        cout << "Laengengrad = " << getLaengengrad() << "; Breitengrad = " << getBreitengrad() << "; Hoehe = " << getHoehe() << "m" << "; Ort = " << Ort << endl;
     };
 };
 
@@ -105,7 +104,7 @@ public:
     };
     void print()
     {
-        cout << "Laengengrad = " << getLaengengrad() << "; Breitengrad = " << getBreitengrad() << "; Hoehe = " << getHoehe() << "; Zeitpunkt = " << Zeitpunkt << endl;
+        cout << "Laengengrad = " << getLaengengrad() << "; Breitengrad = " << getBreitengrad() << "; Hoehe = " << getHoehe() << "m" << "; Zeitpunkt = " << Zeitpunkt << endl;
     };
 };
 class Track
@@ -127,7 +126,7 @@ public:
     {
         track.push_back(point);
     };
-    void write(string filepath)
+    void write(const string& filepath)
     {
         ofstream file;
         file.open(filepath);
@@ -147,7 +146,6 @@ public:
             ss1 << fixed << point.getLaengengrad();
             ss2 << fixed << point.getBreitengrad();
             ss3 << fixed << point.getHoehe();
-            //cout << point.getLaengengrad()<< " " << point.getBreitengrad() << endl;
             line += ss1.str();
             line += " ";
             line += ss2.str();
@@ -192,7 +190,7 @@ public:
 
             file.close();
         }
-        catch (const std::exception &e)
+        catch (const exception &e)
         {
             //ignore
             file.close();
@@ -214,24 +212,26 @@ public:
 int main(int argc, char *argv[])
 {
     Position p1;
-    Position p2(1, 2, 3);
+    Position p2(50.8851, 12.0807, 205);
     p1.print();
     p2.print();
 
     Wegpunkt w1;
-    Wegpunkt w2(1, 2, 3, "Endpunkt");
+    Wegpunkt w2(11.6034, 50.943, 155, "Jena");
+    Wegpunkt w3(50.8851, 12.0807, 205, "Gera");
     w1.print();
     w2.print();
+    w3.print();
 
     Trackpunkt t1;
-    Trackpunkt t2(1, 2, 3, 5);
+    Trackpunkt t2(139.6922, 35.6897, 40, 363.720);
     t1.print();
     t2.print();
 
     Track track;
     track.read("track.txt");
     track.write("tracker.txt");
-    //tracks.print();
+    //tracks.print();           //um platz in der Konsole zu sparen habe ich das print davon auskommentiert
     cout << "Durschnittliche Hoehe: " << track.getAverageHeight() << endl;
 
     return 0;
