@@ -1,4 +1,4 @@
-# Intro to C++
+# OOP-CPP
 This repository contains solutions to the worksheets of the "Object Oriented Programming With C++" course at the Friedrich-Schiller University in Jena. All rights and resources 
 belong to Dr. Sven Sickert FSU-Jena. Fakultat für Mathematik und Informatik ¨Institut fur Informatik"-Lehrstuhl Digitale Bildverarbeitung. 
 
