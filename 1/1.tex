@@ -1,0 +1,47 @@
+\documentclass[12pt]{article}
+
+\parindent 0px 
+\usepackage[ngerman]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\title{Objektorientierte Programmierung mit C++ \\ Übungsserie 1}
+\author{Rico Kölling 192316}
+\date{}
+\begin{document}
+\maketitle
+\textit{Aufgabe} 1: \\ [16pt]
+	\begin{tabular}{l|l|l|}
+
+		Ausdruck & Wert & Typ\\ \hline
+		int $a$ = 5; int $b$ = 2; double $c$ = $b$; & ----- & ----- \\ 		\hline
+		$a * b - - - - - - 12.0f$ & float & 22.0 \\ \hline
+		$a / b / c $ & double & 1.0 \\ \hline
+		$a / c / b $ & double & 1.25 \\ \hline
+		$-1.0f - a*2 E -1 + a/ 2$ & double & 0 \\ \hline
+		$1.0 + (a *= ( 2 / - b -(c += .0E2)))$ & double & -14.0 \\ \hline
+
+	\end{tabular}
+	\\ [4pt]
+1) \\ [4pt]
+\hspace*{3mm}$ a * b - - - - - - 12.0f$ kann man umformulieren zu $5 * 2 + 12.0f$.\\ \hspace*{3mm}Die $12.0f$ sind also plus 12.0, also kommt 22.0 raus also ein float Wert.\\ [4pt]
+2)\\[4pt]
+\hspace*{3mm}$a / b / c$ sind also $ 5 / 2 /  2.0 $ der erste Teil also $a /b$ sind gleich 2 weil zwei \\
+\hspace*{3mm}Integer Werte sich Teilen, danach wird also $2 / c $ gerechnet wobei 1.0,\\
+\hspace*{3mm}also ein Double Wert(das macht C automatisch) raus kommt.\\[4pt]
+3)\\ [4pt]
+\hspace*{3mm}$a / c / b$ also $ 5 / 2.0 / 2$ verhält sich anders als in der 2). Hier wird erst ein\\ 
+\hspace*{3mm}Integer durch ein Float geteilt, $ 5 / 2.0 = 2.5 $ und dann wird die $2.5$ \\
+\hspace*{3mm}durch einen Integer geteilt wobei ein Double raus kommt $2.5 / 2 = 1.25$. \\ [4pt]
+\newpage
+4)\\[4pt]
+\hspace*{3mm}$-1.0f - a*2E-1 + a/2 $ kann zu $-1.0 - 1 + 2$ umgeschrieben werden\\
+\hspace*{3mm}also kommt 0 raus, E-1 oder 0.1 vom Typ double sind ist der Wert double.\\[4pt]
+5)\\ [4pt]
+\hspace*{3mm}$1.0 + (a *= ( 2/b - (c += .0E2)))$\\
+\hspace*{3mm}$= 1.0 +( 5 * ( 2/-2 - (2.0)))$ \\
+\hspace*{3mm}$= 1 + (5 * ((-1) - 2 )$ \\ 
+\hspace*{3mm}$= 1 + (-15)$ \\ 
+\hspace*{3mm}$ = -14$  \\
+\hspace*{3mm}Weil c oder .0E2 vom Typ double sind wird der Wert double.\\[40 pt]
+Edit: Ich habe alle Typen mit typeid().name() ausgeben lassen. 
+
+\end{document}
