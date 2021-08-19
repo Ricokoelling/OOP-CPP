@@ -37,16 +37,18 @@ double product(const vector<double> &v1, const vector<double> &v2)
     double solution = 0;
     for (int i = 0; i < v1.size() && v2.size(); i++)
     {
-        solution += v1[i] * v1[i];
+        solution += v1[i] * v2[i];
     }
     return solution;
 }
 vector<double> product(const vector<double> &v, double f)
 {
     vector<double> solution;
-    for (int i = 0; i < v.size(); i++)
+
+    solution.reserve(v.size());
+    for (double i : v)
     {
-        solution.push_back(v[i] * f);
+        solution.push_back(i * f);
     }
     return solution;
 }
@@ -72,7 +74,7 @@ int main()
 {
     int choice;
     vector<double> array1, array2, result;
-    int input, counter = 0;
+    int input;
     double temp;
     cout << "Please insert what function you need: " << endl;
     cin >> choice;
@@ -100,7 +102,7 @@ int main()
             cin >> temp;
             array1.push_back(temp);
         }
-        if (allPositive(array1) == true)
+        if (allPositive(array1))
         {
             cout << "The vector is positiv in all its numbers" << endl;
         }
@@ -137,9 +139,9 @@ int main()
         cin >> temp;
         result = product(array1, temp);
         cout << "The product is: " << endl;
-        for (int i = 0; i < result.size(); i++)
+        for (double i : result)
         {
-            cout << result[i] << endl;
+            cout << i << endl;
         }
         break;
     case 5:
@@ -164,9 +166,9 @@ int main()
         }
         normalize(array1);
         cout << "The normalised vector is: " << endl;
-        for (int i = 0; i < array1.size(); i++)
+        for (double i : array1)
         {
-            cout << array1[i] << endl;
+            cout << i << endl;
         }
         break;
     default:

@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.19)
-project(7)
+project(4)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(7
+add_executable(4
         1.cpp
-        2.cpp)
+        tempCodeRunnerFile.cpp)

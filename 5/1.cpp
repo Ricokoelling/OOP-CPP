@@ -4,16 +4,22 @@ using namespace std;
 struct Node
 {
     string value;
-    Node *left, *right;
+    Node *left{}, *right{};
 };
 Node *GetNewNode(const string &value)
 {
     Node *newNode = new Node();
     newNode->value = value;
-    newNode->left = newNode->right = NULL;
+    newNode->left = newNode->right = nullptr;
     return newNode;
 }
 typedef struct Node Node;
+int check(const string &value, Node *tree){
+    if(tree->value[1] < value[1]){
+        return -1;
+    }
+    else return 1;
+}
 bool search(Node *tree, string &input)
 {
     Node *now = tree;
@@ -30,38 +36,39 @@ bool search(Node *tree, string &input)
 }
 void free(Node *&tree)
 {
-    if (tree != NULL)
+    if (tree != nullptr)
     {
         free(tree->left);
         free(tree->right);
         delete tree;
-        tree = NULL;
+        tree = nullptr;
     }
 }
 void list(Node *tree)
 {
-    if (tree != NULL)
+    if (tree != nullptr)
     {
-        cout << tree->value << " ";
         list(tree->left);
+        cout << tree->value << " ";
         list(tree->right);
     }
 }
 Node *insert(Node *&tree, string &input)
 {
-    if (search(tree, input) == true)
+    if (search(tree, input))
     {
         return (tree);
     }
-    if (tree == NULL)
+
+    if (tree == nullptr)
     {
         tree = GetNewNode(input);
     }
-    else if (tree->value.compare(input) < 0)
+    else if (check(input,tree) < 0)
     {
         tree->left = insert(tree->left, input);
     }
-    else if (tree->value.compare(input) > 0)
+    else
     {
         tree->right = insert(tree->right, input);
     }
@@ -69,18 +76,17 @@ Node *insert(Node *&tree, string &input)
 }
 int main()
 {
-    Node *tree = NULL;
+    Node *tree = nullptr;
     string input;
-    cout << "Please insert your word: ";
+    cout << "Please insert your word:";
     getline(cin, input);
     while (input != ".")
     {
-        tree = insert(tree, input);
-        cout << "Please insert your word: ";
+        insert(tree, input);
+        cout << "Please insert your word:";
         getline(cin, input);
     }
     list(tree);
     free(tree);
-    list(tree);
     return 0;
 }

@@ -12,6 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5e47afb-df6b-457f-9d79-50d31ca79f3b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../1/1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/../1/1.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../1/1.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../1/1.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../4/1.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4/tempCodeRunnerFile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../4/tempCodeRunnerFile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5/1.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../5/1.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../5/tempCodeRunnerFile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../5/tempCodeRunnerFile.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../7/2.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../7/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../7/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tracker.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tracker.txt" afterDir="false" />
@@ -80,6 +88,8 @@
       <workItem from="1625431551464" duration="788000" />
       <workItem from="1625433284236" duration="58000" />
       <workItem from="1625863451350" duration="14000" />
+      <workItem from="1629154310661" duration="621000" />
+      <workItem from="1629154945004" duration="48000" />
     </task>
     <servers />
   </component>

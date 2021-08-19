@@ -6,15 +6,16 @@ class IntMenge
 {
 private:
     int maximum, minimum;
-    vector<bool> menge = vector<bool>(maximum, false);
+    vector<bool> menge;
 
 public:
     IntMenge(int min, int max)
     {
+        menge = vector<bool>(maximum, false);
         minimum = min;
         maximum = max;
     };
-    bool isValid(int i)
+    bool isValid(int i) const
     {
         if (i <= maximum && i >= minimum)
         {
@@ -24,27 +25,32 @@ public:
     };
     void add(int i)
     {
-        if (menge[i] == false)
-        {
-            menge[i] = true;
+        if(isValid(i)) {
+            if (!menge[i]) {
+                menge[i] = true;
+            }
         }
     };
     void remove(int i)
     {
-        if (menge[i] == true)
-        {
-            menge[i] = false;
+        if(isValid(i)) {
+            if (menge[i]) {
+                menge[i] = false;
+            }
         }
     };
     bool contains(int i)
     {
-        return menge[i];
+        if(isValid(i)) {
+            return menge[i];
+        }
+        return false;
     };
     bool isEmpty()
     {
         for (int i = minimum; i <= maximum; i++)
         {
-            if (menge[i] != false)
+            if (menge[i])
             {
                 return false;
             }
@@ -56,7 +62,7 @@ public:
         int length = 0;
         for (int i = minimum; i <= maximum; i++)
         {
-            if (menge[i] == true)
+            if (menge[i])
             {
                 length++;
             }
@@ -68,7 +74,7 @@ public:
         vector<int> elements;
         for (int i = minimum; i <= maximum; i++)
         {
-            if (menge[i] == true)
+            if (menge[i])
             {
                 elements.push_back(i);
             }
@@ -82,9 +88,9 @@ public:
              << "{";
         for (int i = minimum; i <= maximum; i++)
         {
-            if (menge[i] == true)
+            if (menge[i])
             {
-                if (temp == true)
+                if (temp)
                 {
                     cout << ", ";
                 }
@@ -114,8 +120,8 @@ int main()
         cin >> input;
     }
     vector<int> intv = m.getElements();
-    for (int i = 0; i < intv.size(); i++)
-        m.remove(intv[i]);
+    for (int i : intv)
+        m.remove(i);
     cout << (m.isEmpty() ? "Menge ist leer" : "Menge ist nicht leer")
          << endl;
 }

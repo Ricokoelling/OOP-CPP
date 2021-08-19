@@ -68,7 +68,7 @@ public:
     {
         return Ort;
     };
-    void setOrt(string place)
+    void setOrt(const string place)
     {
         Ort = place;
     };
@@ -117,14 +117,14 @@ public:
     Track(const Track &other) : track(other.track){};
     void print()
     {
-        for (int i = 0; i < track.size(); i++)
+        for (auto & i : track)
         {
-            track[i].print();
+            i.print();
         }
     };
-    void add(Trackpunkt point)
+    void add(const Trackpunkt *point)
     {
-        track.push_back(point);
+        track.push_back(*point);
     };
     void write(const string& filepath)
     {
@@ -185,7 +185,7 @@ public:
 
                 file >> temp;
                 point.setZeitpunkt(stoi(temp));
-                add(point);
+                add(&point);
             }
 
             file.close();

@@ -34,15 +34,14 @@
 \newpage
 4)\\[4pt]
 \hspace*{3mm}$-1.0f - a*2E-1 + a/2 $ kann zu $-1.0 - 1 + 2$ umgeschrieben werden\\
-\hspace*{3mm}also kommt 0 raus, wegen den Float Wert wird das ein Double.\\[4pt]
+\hspace*{3mm}also kommt 0 raus, E-1 oder 0.1 vom Typ double sind ist der Wert double.\\[4pt]
 5)\\ [4pt]
 \hspace*{3mm}$1.0 + (a *= ( 2/b - (c += .0E2)))$\\
 \hspace*{3mm}$= 1.0 +( 5 * ( 2/-2 - (2.0)))$ \\
 \hspace*{3mm}$= 1 + (5 * ((-1) - 2 )$ \\ 
 \hspace*{3mm}$= 1 + (-15)$ \\ 
 \hspace*{3mm}$ = -14$  \\
-\hspace*{3mm}Dadurch ist zu sehen, dass -14.0 durch die Rechnung mit einem\\
-\hspace*{3mm}Float zustande kommt und deswegen kommt Double raus.  \\[40 pt]
+\hspace*{3mm}Weil c oder .0E2 vom Typ double sind wird der Wert double.\\[40 pt]
 Edit: Ich habe alle Typen mit typeid().name() ausgeben lassen. 
 
 \end{document}
